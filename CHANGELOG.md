@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-02-13
+
+### Changed
+
+- Removed redundant root docs (INSTALL.md, GUIDE.md, IMPLEMENTATION.md) - now covered by GitHub Pages
+- Documentation auto-syncs from root CHANGELOG.md and CONTRIBUTING.md to docs site
+- GitHub Pages deployment now triggers on version tags
+
+### Fixed
+
+- Linter errors in test files (unchecked error returns)
+- Help command now works without requiring generated runtime files
+- Category tests updated to match current category system
+- FilterServicesStage properly filters disabled services from compose output
+
+## [0.1.1] - 2025-02-13
+
 ### Added
 
 - Initial standalone release
@@ -22,15 +39,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Extracted from monolithic homelab repository
 - Improved documentation for standalone use
 - Consolidated CLI documentation
-- Removed redundant root docs (INSTALL.md, GUIDE.md, IMPLEMENTATION.md) - now covered by GitHub Pages
-- Documentation auto-syncs from root CHANGELOG.md and CONTRIBUTING.md to docs site
 
 ### Fixed
 
 - Variable precedence consistency
 - Dependency validation edge cases
-- Category tests to use correct function calls and test data
-- FilterServicesStage to properly filter disabled services from compose output
 
 ## [0.1.0] - 2025-01-XX
 

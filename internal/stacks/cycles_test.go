@@ -34,7 +34,7 @@ func setupTestStacks(t *testing.T, stacks map[string][]string) string {
 		t.Fatalf("Failed to change to temp dir: %v", err)
 	}
 	t.Cleanup(func() {
-		os.Chdir(originalDir)
+		_ = os.Chdir(originalDir)
 	})
 
 	// Create each stack

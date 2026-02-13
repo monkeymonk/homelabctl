@@ -73,8 +73,8 @@ func setupTestStacksForDeps(t *testing.T) func() {
 
 	// Return cleanup function
 	return func() {
-		os.Chdir(originalDir)
-		os.RemoveAll(tmpDir)
+		_ = os.Chdir(originalDir)
+		_ = os.RemoveAll(tmpDir)
 	}
 }
 

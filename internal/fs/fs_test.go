@@ -28,8 +28,8 @@ func setupTestRepo(t *testing.T) (string, func()) {
 
 	// Return cleanup function
 	cleanup := func() {
-		os.Chdir(originalDir)
-		os.RemoveAll(tmpDir)
+		_ = os.Chdir(originalDir)
+		_ = os.RemoveAll(tmpDir)
 	}
 
 	return tmpDir, cleanup
@@ -76,8 +76,8 @@ func TestVerifyRepository_MissingDirectories(t *testing.T) {
 	defer cleanup()
 
 	// Create only some directories
-	os.MkdirAll("stacks", 0755)
-	os.MkdirAll("enabled", 0755)
+	_ = os.MkdirAll("stacks", 0755)
+	_ = os.MkdirAll("enabled", 0755)
 	// Missing: inventory, secrets, runtime
 
 	err := VerifyRepository()
@@ -179,12 +179,12 @@ func TestGetEnabledStacks(t *testing.T) {
 	createRepoStructure(t)
 
 	// Create test stacks
-	os.MkdirAll("stacks/stack1", 0755)
-	os.MkdirAll("stacks/stack2", 0755)
+	_ = os.MkdirAll("stacks/stack1", 0755)
+	_ = os.MkdirAll("stacks/stack2", 0755)
 
 	// Create symlinks in enabled/
-	os.Symlink("../stacks/stack1", "enabled/stack1")
-	os.Symlink("../stacks/stack2", "enabled/stack2")
+	_ = os.Symlink("../stacks/stack1", "enabled/stack1")
+	_ = os.Symlink("../stacks/stack2", "enabled/stack2")
 
 	stacks, err := GetEnabledStacks()
 	if err != nil {
@@ -214,7 +214,7 @@ func TestEnableStack(t *testing.T) {
 
 	// Create a test stack
 	stackName := "test-stack"
-	os.MkdirAll(filepath.Join("stacks", stackName), 0755)
+	_ = os.MkdirAll(filepath.Join("stacks", stackName), 0755)
 
 	// Enable it
 	err := EnableStack(stackName)
@@ -247,8 +247,8 @@ func TestDisableStack(t *testing.T) {
 
 	// Create and enable a test stack
 	stackName := "test-stack"
-	os.MkdirAll(filepath.Join("stacks", stackName), 0755)
-	os.Symlink("../stacks/"+stackName, filepath.Join("enabled", stackName))
+	_ = os.MkdirAll(filepath.Join("stacks", stackName), 0755)
+	_ = os.Symlink("../stacks/"+stackName, filepath.Join("enabled", stackName))
 
 	// Disable it
 	err := DisableStack(stackName)
@@ -270,10 +270,10 @@ func TestEnableStack_AlreadyEnabled(t *testing.T) {
 	createRepoStructure(t)
 
 	stackName := "test-stack"
-	os.MkdirAll(filepath.Join("stacks", stackName), 0755)
+	_ = os.MkdirAll(filepath.Join("stacks", stackName), 0755)
 
 	// Enable once
-	EnableStack(stackName)
+	_ = EnableStack(stackName)
 
 	// Try to enable again
 	err := EnableStack(stackName)
@@ -289,7 +289,7 @@ func TestDisableStack_NotEnabled(t *testing.T) {
 	createRepoStructure(t)
 
 	stackName := "test-stack"
-	os.MkdirAll(filepath.Join("stacks", stackName), 0755)
+	_ = os.MkdirAll(filepath.Join("stacks", stackName), 0755)
 
 	// Try to disable without enabling first
 	err := DisableStack(stackName)

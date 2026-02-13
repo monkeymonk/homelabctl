@@ -2,7 +2,6 @@ package pipeline
 
 import (
 	"os"
-	"path/filepath"
 	"testing"
 )
 
@@ -42,39 +41,11 @@ func setupPipelineTest(t *testing.T) (string, func()) {
 
 	// Return cleanup function
 	cleanup := func() {
-		os.Chdir(originalDir)
-		os.RemoveAll(tmpDir)
+		_ = os.Chdir(originalDir)
+		_ = os.RemoveAll(tmpDir)
 	}
 
 	return tmpDir, cleanup
-}
-
-func createTestStack(t *testing.T, name string, requires []string) {
-	t.Helper()
-
-	stackDir := filepath.Join("stacks", name)
-	if err := os.MkdirAll(stackDir, 0755); err != nil {
-		t.Fatalf("Failed to create stack dir: %v", err)
-	}
-
-	// Create stack.yaml
-	content := "name: " + name + "\n"
-	content += "category: other\n"
-	if len(requires) > 0 {
-		content += "requires:\n"
-		for _, req := range requires {
-			content += "  - " + req + "\n"
-		}
-	} else {
-		content += "requires: []\n"
-	}
-	content += "services:\n  - app\n"
-	content += "vars:\n  app:\n    image: nginx\n"
-
-	stackFile := filepath.Join(stackDir, "stack.yaml")
-	if err := os.WriteFile(stackFile, []byte(content), 0644); err != nil {
-		t.Fatalf("Failed to write stack.yaml: %v", err)
-	}
 }
 
 func TestNewPipeline(t *testing.T) {

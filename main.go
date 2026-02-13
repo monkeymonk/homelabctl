@@ -27,6 +27,12 @@ func main() {
 	command := os.Args[1]
 	args := os.Args[2:]
 
+	// Handle help flags
+	if command == "--help" || command == "-h" || command == "help" {
+		printUsage()
+		return
+	}
+
 	var err error
 
 	switch command {
