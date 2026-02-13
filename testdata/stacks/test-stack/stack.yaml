@@ -1,0 +1,12 @@
+name: test-stack
+category: other
+services:
+  - test-service
+vars:
+  test-service:
+    image: nginx:latest
+    hostname: test
+    port: 80
+persistence:
+  volumes:
+    - test_data
