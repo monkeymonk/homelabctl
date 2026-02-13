@@ -145,10 +145,15 @@ func FilterServicesStage() Stage {
 		fmt.Println("Disabled services will be filtered from final compose:")
 
 		for stackName, config := range ctx.StackConfigs {
-			// Keep all variables for template rendering
-			config.FilteredVars = config.MergedVars
+			// Create a copy of MergedVars without disabled services
+			config.FilteredVars = make(map[string]interface{})
+			for key, value := range config.MergedVars {
+				if !ctx.DisabledServices[key] {
+					config.FilteredVars[key] = value
+				}
+			}
 
-			// Just report which services are disabled in this stack
+			// Report which services are disabled in this stack
 			for _, svc := range config.Services {
 				if ctx.DisabledServices[svc] {
 					fmt.Printf("  - %s (from %s)\n", svc, stackName)

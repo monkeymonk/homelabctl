@@ -4,7 +4,20 @@ import (
 	"testing"
 )
 
+// setupTest registers test categories
+func setupTest(t *testing.T) {
+	t.Helper()
+	Reset()
+	RegisterCategory("core")
+	RegisterCategory("infrastructure")
+	RegisterCategory("monitoring")
+	RegisterCategory("automation")
+	RegisterCategory("media")
+	RegisterCategory("tools")
+}
+
 func TestGet(t *testing.T) {
+	setupTest(t)
 	tests := []struct {
 		name     string
 		catName  string
@@ -12,10 +25,16 @@ func TestGet(t *testing.T) {
 		wantName string
 	}{
 		{
-			name:     "valid category - infra",
-			catName:  "infra",
+			name:     "valid category - core",
+			catName:  "core",
 			wantErr:  false,
-			wantName: "infra",
+			wantName: "core",
+		},
+		{
+			name:     "valid category - infrastructure",
+			catName:  "infrastructure",
+			wantErr:  false,
+			wantName: "infrastructure",
 		},
 		{
 			name:     "valid category - media",
@@ -30,10 +49,10 @@ func TestGet(t *testing.T) {
 			wantName: "automation",
 		},
 		{
-			name:     "valid category - other",
-			catName:  "other",
+			name:     "valid category - tools",
+			catName:  "tools",
 			wantErr:  false,
-			wantName: "other",
+			wantName: "tools",
 		},
 		{
 			name:    "invalid category",
@@ -67,34 +86,51 @@ func TestGet(t *testing.T) {
 }
 
 func TestCategoryOrder(t *testing.T) {
-	infra, _ := Get("infra")
+	setupTest(t)
+	core, _ := Get("core")
+	infrastructure, _ := Get("infrastructure")
+	monitoring, _ := Get("monitoring")
 	automation, _ := Get("automation")
 	media, _ := Get("media")
-	other, _ := Get("other")
+	tools, _ := Get("tools")
 
-	// Test that order is correct: infra < automation < media < other
-	if infra.Order >= automation.Order {
-		t.Errorf("infra.Order (%d) should be < automation.Order (%d)", infra.Order, automation.Order)
+	// Test that order is correct: core < infrastructure < monitoring < automation < media < tools
+	if core.Order >= infrastructure.Order {
+		t.Errorf("core.Order (%d) should be < infrastructure.Order (%d)", core.Order, infrastructure.Order)
+	}
+
+	if infrastructure.Order >= monitoring.Order {
+		t.Errorf("infrastructure.Order (%d) should be < monitoring.Order (%d)", infrastructure.Order, monitoring.Order)
+	}
+
+	if monitoring.Order >= automation.Order {
+		t.Errorf("monitoring.Order (%d) should be < automation.Order (%d)", monitoring.Order, automation.Order)
 	}
 
 	if automation.Order >= media.Order {
 		t.Errorf("automation.Order (%d) should be < media.Order (%d)", automation.Order, media.Order)
 	}
 
-	if media.Order >= other.Order {
-		t.Errorf("media.Order (%d) should be < other.Order (%d)", media.Order, other.Order)
+	if media.Order >= tools.Order {
+		t.Errorf("media.Order (%d) should be < tools.Order (%d)", media.Order, tools.Order)
 	}
 }
 
 func TestValidCategoryName(t *testing.T) {
+	setupTest(t)
 	tests := []struct {
 		name     string
 		catName  string
 		wantValid bool
 	}{
 		{
-			name:     "valid - infra",
-			catName:  "infra",
+			name:     "valid - core",
+			catName:  "core",
+			wantValid: true,
+		},
+		{
+			name:     "valid - infrastructure",
+			catName:  "infrastructure",
 			wantValid: true,
 		},
 		{
@@ -108,14 +144,9 @@ func TestValidCategoryName(t *testing.T) {
 			wantValid: true,
 		},
 		{
-			name:     "valid - other",
-			catName:  "other",
-			wantValid: true,
-		},
-		{
-			name:     "invalid - random",
+			name:     "valid - random (dynamic discovery)",
 			catName:  "random",
-			wantValid: false,
+			wantValid: true,
 		},
 		{
 			name:     "invalid - empty",
@@ -135,20 +166,26 @@ func TestValidCategoryName(t *testing.T) {
 }
 
 func TestCategoryDefaults(t *testing.T) {
+	setupTest(t)
 	tests := []struct {
 		name           string
 		catName        string
 		expectedKeys   []string
 	}{
 		{
-			name:         "infra has restart default",
-			catName:      "infra",
-			expectedKeys: []string{"restart"},
+			name:         "core has restart and security defaults",
+			catName:      "core",
+			expectedKeys: []string{"restart", "security_opt"},
 		},
 		{
-			name:         "media has environment defaults",
+			name:         "infrastructure has restart and security defaults",
+			catName:      "infrastructure",
+			expectedKeys: []string{"restart", "security_opt"},
+		},
+		{
+			name:         "media has restart and environment defaults",
 			catName:      "media",
-			expectedKeys: []string{"environment"},
+			expectedKeys: []string{"restart", "environment"},
 		},
 		{
 			name:         "automation has restart default",
@@ -181,14 +218,15 @@ func TestCategoryDefaults(t *testing.T) {
 }
 
 func TestAllCategories(t *testing.T) {
-	all := AllCategories
+	setupTest(t)
+	all := AllCategories()
 
-	if len(all) != 4 {
-		t.Errorf("Expected 4 categories, got %d", len(all))
+	if len(all) != 6 {
+		t.Errorf("Expected 6 categories, got %d", len(all))
 	}
 
 	// Check that all expected categories are present
-	expectedNames := []string{"infra", "media", "automation", "other"}
+	expectedNames := []string{"core", "infrastructure", "monitoring", "automation", "media", "tools"}
 	foundNames := make(map[string]bool)
 
 	for _, cat := range all {
@@ -211,15 +249,26 @@ func TestAllCategories(t *testing.T) {
 }
 
 func TestCategoryDisplayNames(t *testing.T) {
+	setupTest(t)
 	tests := []struct {
 		name        string
 		catName     string
 		wantDisplay string
 	}{
 		{
-			name:        "infra display name",
-			catName:     "infra",
+			name:        "core display name",
+			catName:     "core",
+			wantDisplay: "Core",
+		},
+		{
+			name:        "infrastructure display name",
+			catName:     "infrastructure",
 			wantDisplay: "Infrastructure",
+		},
+		{
+			name:        "monitoring display name",
+			catName:     "monitoring",
+			wantDisplay: "Monitoring",
 		},
 		{
 			name:        "media display name",
@@ -232,9 +281,9 @@ func TestCategoryDisplayNames(t *testing.T) {
 			wantDisplay: "Automation",
 		},
 		{
-			name:        "other display name",
-			catName:     "other",
-			wantDisplay: "Other",
+			name:        "tools display name",
+			catName:     "tools",
+			wantDisplay: "Tools",
 		},
 	}
 
@@ -253,8 +302,9 @@ func TestCategoryDisplayNames(t *testing.T) {
 }
 
 func TestCategoryColors(t *testing.T) {
+	setupTest(t)
 	// Just verify that categories have colors defined
-	all := AllCategories
+	all := AllCategories()
 
 	for _, cat := range all {
 		if cat.Color == "" {
@@ -263,21 +313,28 @@ func TestCategoryColors(t *testing.T) {
 	}
 }
 
-func TestInfraDefaults(t *testing.T) {
-	infra, err := Get("infra")
+func TestInfrastructureDefaults(t *testing.T) {
+	setupTest(t)
+	infrastructure, err := Get("infrastructure")
 	if err != nil {
 		t.Fatalf("Get() error = %v", err)
 	}
 
-	// Infra should have restart policy
-	if restart, ok := infra.Defaults["restart"]; !ok {
-		t.Error("Infra category should have restart default")
+	// Infrastructure should have restart policy
+	if restart, ok := infrastructure.Defaults["restart"]; !ok {
+		t.Error("Infrastructure category should have restart default")
 	} else if restart != "unless-stopped" {
-		t.Errorf("Infra restart = %v, want unless-stopped", restart)
+		t.Errorf("Infrastructure restart = %v, want unless-stopped", restart)
+	}
+
+	// Infrastructure should have security_opt
+	if _, ok := infrastructure.Defaults["security_opt"]; !ok {
+		t.Error("Infrastructure category should have security_opt default")
 	}
 }
 
 func TestMediaDefaults(t *testing.T) {
+	setupTest(t)
 	media, err := Get("media")
 	if err != nil {
 		t.Fatalf("Get() error = %v", err)
