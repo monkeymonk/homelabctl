@@ -34,3 +34,7 @@ dist/
 /testdata/runtime/
 /testdata/enabled/*
 !/testdata/enabled/.gitkeep
+
+# Auto-synced docs (generated from root files)
+docs/reference/changelog.md
+docs/contributing/how-to-contribute.md

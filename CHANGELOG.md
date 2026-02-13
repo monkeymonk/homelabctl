@@ -22,11 +22,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Extracted from monolithic homelab repository
 - Improved documentation for standalone use
 - Consolidated CLI documentation
+- Removed redundant root docs (INSTALL.md, GUIDE.md, IMPLEMENTATION.md) - now covered by GitHub Pages
+- Documentation auto-syncs from root CHANGELOG.md and CONTRIBUTING.md to docs site
 
 ### Fixed
 
 - Variable precedence consistency
 - Dependency validation edge cases
+- Category tests to use correct function calls and test data
+- FilterServicesStage to properly filter disabled services from compose output
 
 ## [0.1.0] - 2025-01-XX
 

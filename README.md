@@ -612,9 +612,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Documentation
 
-- **[INSTALL.md](INSTALL.md)** - Installation guide
-- **[GUIDE.md](GUIDE.md)** - Complete usage guide with examples
-- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Implementation details
+📖 **[Complete Documentation Site](https://monkeymonk.github.io/homelabctl/)** - Installation, guides, architecture, and reference
+
+Quick links:
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute
 
