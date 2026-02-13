@@ -1,4 +1,4 @@
-module homelabctl
+module github.com/monkeymonk/homelabctl
 
 go 1.21
 

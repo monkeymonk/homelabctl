@@ -3,7 +3,7 @@ package stacks
 import (
 	"sort"
 
-	"homelabctl/internal/categories"
+	"github.com/monkeymonk/homelabctl/internal/categories"
 )
 
 // StackWithCategory pairs a stack name with its category info

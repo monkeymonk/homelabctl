@@ -3,10 +3,10 @@ package cmd
 import (
 	"fmt"
 
-	"homelabctl/internal/categories"
-	"homelabctl/internal/fs"
-	"homelabctl/internal/inventory"
-	"homelabctl/internal/stacks"
+	"github.com/monkeymonk/homelabctl/internal/categories"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/inventory"
+	"github.com/monkeymonk/homelabctl/internal/stacks"
 )
 
 // categoryColor returns a colored category badge

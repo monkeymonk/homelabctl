@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"homelabctl/internal/fs"
-	"homelabctl/internal/inventory"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/inventory"
 )
 
 // Init initializes a new homelab repository or verifies an existing one

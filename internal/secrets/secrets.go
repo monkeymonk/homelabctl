@@ -9,7 +9,7 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // LoadSecrets loads secrets/<stack>.yaml or secrets/<stack>.enc.yaml if it exists

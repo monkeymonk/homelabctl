@@ -3,9 +3,9 @@ package cmd
 import (
 	"fmt"
 
-	"homelabctl/internal/errors"
-	"homelabctl/internal/fs"
-	"homelabctl/internal/stacks"
+	"github.com/monkeymonk/homelabctl/internal/errors"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/stacks"
 )
 
 // Validate checks the repository for errors

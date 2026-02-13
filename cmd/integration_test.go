@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"homelabctl/internal/testutil"
+	"github.com/monkeymonk/homelabctl/internal/testutil"
 )
 
 // Integration tests for CLI commands

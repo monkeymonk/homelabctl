@@ -6,13 +6,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"homelabctl/internal/fs"
-	"homelabctl/internal/stacks"
-	"homelabctl/internal/inventory"
-	"homelabctl/internal/secrets"
-	"homelabctl/internal/render"
-	"homelabctl/internal/compose"
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/stacks"
+	"github.com/monkeymonk/homelabctl/internal/inventory"
+	"github.com/monkeymonk/homelabctl/internal/secrets"
+	"github.com/monkeymonk/homelabctl/internal/render"
+	"github.com/monkeymonk/homelabctl/internal/compose"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // LoadStacksStage loads enabled stacks and validates dependencies

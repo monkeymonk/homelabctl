@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // Deploy generates runtime files and deploys using docker compose

@@ -3,7 +3,7 @@ package stacks
 import (
 	"fmt"
 
-	"homelabctl/internal/categories"
+	"github.com/monkeymonk/homelabctl/internal/categories"
 )
 
 // ValidateCategoryDependencies ensures dependency order respects category hierarchy

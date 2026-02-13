@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // VerifyRepository checks that the homelab repository structure is valid

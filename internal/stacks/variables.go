@@ -1,7 +1,7 @@
 package stacks
 
 import (
-	"homelabctl/internal/categories"
+	"github.com/monkeymonk/homelabctl/internal/categories"
 )
 
 // MergeVariables merges variables according to the precedence rules:

@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // Compose is a passthrough to docker compose for any command

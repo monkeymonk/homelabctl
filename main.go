@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"homelabctl/cmd"
-	"homelabctl/internal/errors"
+	"github.com/monkeymonk/homelabctl/cmd"
+	"github.com/monkeymonk/homelabctl/internal/errors"
 )
 
 func main() {

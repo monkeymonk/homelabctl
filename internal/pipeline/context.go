@@ -1,7 +1,7 @@
 package pipeline
 
 import (
-	"homelabctl/internal/compose"
+	"github.com/monkeymonk/homelabctl/internal/compose"
 )
 
 // Context holds state that flows through the pipeline

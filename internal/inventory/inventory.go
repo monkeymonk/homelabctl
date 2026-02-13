@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // LoadVars loads inventory/vars.yaml

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"homelabctl/internal/fs"
-	"homelabctl/internal/pipeline"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/pipeline"
 )
 
 // Generate renders all templates and creates runtime files

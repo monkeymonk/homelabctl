@@ -3,10 +3,10 @@ package cmd
 import (
 	"fmt"
 
-	"homelabctl/internal/errors"
-	"homelabctl/internal/fs"
-	"homelabctl/internal/inventory"
-	"homelabctl/internal/stacks"
+	"github.com/monkeymonk/homelabctl/internal/errors"
+	"github.com/monkeymonk/homelabctl/internal/fs"
+	"github.com/monkeymonk/homelabctl/internal/inventory"
+	"github.com/monkeymonk/homelabctl/internal/stacks"
 )
 
 // Disable disables a stack or service

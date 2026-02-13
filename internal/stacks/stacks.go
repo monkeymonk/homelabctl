@@ -6,9 +6,9 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"homelabctl/internal/categories"
-	"homelabctl/internal/errors"
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/categories"
+	"github.com/monkeymonk/homelabctl/internal/errors"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // Stack represents a stack.yaml manifest

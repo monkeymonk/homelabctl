@@ -9,8 +9,8 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"homelabctl/internal/errors"
-	"homelabctl/internal/paths"
+	"github.com/monkeymonk/homelabctl/internal/errors"
+	"github.com/monkeymonk/homelabctl/internal/paths"
 )
 
 // Context represents the template context passed to gomplate
