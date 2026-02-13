@@ -1,5 +1,12 @@
 # homelabctl
 
+**Declarative Docker stack management for your homelab**
+
+[![Go Version](https://img.shields.io/github/go-mod/go-version/monkeymonk/homelabctl)](https://go.dev/)
+[![License](https://img.shields.io/github/license/monkeymonk/homelabctl)](LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/monkeymonk/homelabctl)](https://goreportcard.com/report/github.com/monkeymonk/homelabctl)
+[![GitHub Issues](https://img.shields.io/github/issues/monkeymonk/homelabctl)](https://github.com/monkeymonk/homelabctl/issues)
+
 **homelabctl** is a CLI tool for managing Docker stacks in your homelab using declarative, template-based configuration.
 
 Think of it as a compiler for your homelab: it transforms static stack definitions into runtime Docker Compose configurations.
@@ -15,6 +22,17 @@ Think of it as a compiler for your homelab: it transforms static stack definitio
 - ✅ **Service-Level Control** - Disable individual services without disabling stacks
 - ✅ **Docker Compose Passthrough** - Full access to all docker compose commands
 - ✅ **Fail-Fast** - Clear errors with actionable suggestions
+
+## Why homelabctl?
+
+- 🚀 **Simple** - No complex orchestration platforms, just Docker Compose
+- 📦 **Declarative** - Define your infrastructure as code
+- 🔒 **Secure** - Built-in SOPS encryption for secrets
+- 🎯 **Deterministic** - Same input always produces the same output
+- 🔄 **Reproducible** - Version control your entire homelab configuration
+- 🎨 **Flexible** - Powerful templating with gomplate
+- 🏗️ **Organized** - Category-based deployment ordering
+- 🛡️ **Fail-fast** - Clear errors with actionable suggestions
 
 ## Quick Start
 
@@ -39,18 +57,23 @@ go install
 ### Create Your First Homelab
 
 ```bash
-# Initialize repository
+# 1. Initialize repository
 mkdir ~/homelab && cd ~/homelab
 homelabctl init
 
-# Enable and deploy a stack
-homelabctl enable core
+# 2. Configure your domain
+echo "domain: homelab.local" > inventory/vars.yaml
+
+# 3. Enable and deploy a stack
+homelabctl enable traefik
 homelabctl validate
 homelabctl deploy
 
-# Check status
+# 4. Check status
 homelabctl ps
 ```
+
+**That's it!** Your first service is running. Add more stacks, customize variables, and deploy your entire homelab infrastructure.
 
 ## Usage
 
@@ -610,9 +633,32 @@ homelabctl follows a **fail-fast** philosophy:
 - Exit code 1 on any failure
 - Enhanced errors with actionable suggestions
 
+## Community & Support
+
+### Getting Help
+
+- 📖 **[Documentation](https://monkeymonk.github.io/homelabctl/)** - Complete documentation site
+- 💬 **[Discussions](https://github.com/monkeymonk/homelabctl/discussions)** - Ask questions and share ideas
+- 🐛 **[Issues](https://github.com/monkeymonk/homelabctl/issues)** - Report bugs or request features
+- 🤝 **[Contributing](CONTRIBUTING.md)** - Help improve homelabctl
+
+### Roadmap
+
+- [ ] Interactive stack selection mode
+- [ ] Stack scaffolding templates
+- [ ] Health check integration
+- [ ] Backup/restore functionality
+- [ ] Remote repository support
+- [ ] Plugin system for custom commands
+- [ ] Shell completions (bash, zsh, fish)
+- [ ] Config diff viewer
+- [ ] Parallel rendering for faster generation
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
 ## License
 
-MIT License - See LICENSE file for details.
+MIT License - See [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 

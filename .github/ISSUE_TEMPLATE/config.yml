@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/monkeymonk/homelabctl/blob/main/README.md
+    about: Read the complete documentation
+  - name: 📚 User Guide
+    url: https://github.com/monkeymonk/homelabctl/blob/main/GUIDE.md
+    about: Step-by-step usage guide
+  - name: 💬 GitHub Discussions
+    url: https://github.com/monkeymonk/homelabctl/discussions
+    about: Ask questions and discuss with the community
+  - name: 🤝 Contributing Guide
+    url: https://github.com/monkeymonk/homelabctl/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to the project

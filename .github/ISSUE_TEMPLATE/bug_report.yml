@@ -1,0 +1,107 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us resolve it.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: What happened that shouldn't have?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Run command '...'
+        2. With configuration '...'
+        3. See error '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened instead?
+      placeholder: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Output / Logs
+      description: If applicable, paste any error messages or relevant logs
+      render: shell
+      placeholder: Paste error output here
+
+  - type: input
+    id: version
+    attributes:
+      label: homelabctl Version
+      description: Run `homelabctl --version` or `go version`
+      placeholder: v0.1.0 or built from main
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you running on?
+      placeholder: Ubuntu 22.04, macOS 14, etc.
+    validations:
+      required: true
+
+  - type: input
+    id: docker
+    attributes:
+      label: Docker Version
+      description: Run `docker --version`
+      placeholder: Docker version 24.0.0
+
+  - type: input
+    id: gomplate
+    attributes:
+      label: Gomplate Version
+      description: Run `gomplate --version`
+      placeholder: gomplate version 3.11.6
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem
+      placeholder: Anything else we should know?
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have included all requested information above
+          required: true
+        - label: I am running the latest version (or have tested with it)
+          required: false

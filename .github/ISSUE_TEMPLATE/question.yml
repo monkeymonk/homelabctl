@@ -1,0 +1,54 @@
+name: Question / Support
+description: Ask a question or get help using homelabctl
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We're here to help!
+
+        **Note:** For general discussions, consider using [GitHub Discussions](https://github.com/monkeymonk/homelabctl/discussions) instead.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What do you need help with?
+      placeholder: How do I...? / What's the best way to...?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to accomplish?
+      placeholder: I'm trying to set up... / I want to achieve...
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: What Have You Tried?
+      description: What steps have you already taken?
+      placeholder: I've read the docs, tried X, checked Y...
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant Configuration
+      description: Share relevant parts of your setup (redact secrets!)
+      render: yaml
+      placeholder: |
+        # stack.yaml or inventory/vars.yaml
+        # (remove any sensitive information)
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have checked the documentation (README, GUIDE.md, etc.)
+          required: true
+        - label: I have searched existing issues and discussions
+          required: true
