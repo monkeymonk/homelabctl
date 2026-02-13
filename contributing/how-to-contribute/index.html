@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-contribute" class="md-skip">
+        <a href="#contributing-to-homelabctl" class="md-skip">
           Skip to content
         </a>
       
@@ -1096,7 +1096,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-contribute_1" class="md-nav__link">
+  <a href="#how-to-contribute" class="md-nav__link">
     <span class="md-ellipsis">
       
         How to Contribute
@@ -1350,17 +1350,6 @@
     <span class="md-ellipsis">
       
         License
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
       
     </span>
   </a>
@@ -1650,7 +1639,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-contribute_1" class="md-nav__link">
+  <a href="#how-to-contribute" class="md-nav__link">
     <span class="md-ellipsis">
       
         How to Contribute
@@ -1910,17 +1899,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1946,11 +1924,11 @@
   
 
 
-<h1 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h1>
+<h1 id="contributing-to-homelabctl">Contributing to homelabctl<a class="headerlink" href="#contributing-to-homelabctl" title="Permanent link">&para;</a></h1>
 <p>Thank you for your interest in contributing! This document provides guidelines and instructions.</p>
 <h2 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">&para;</a></h2>
 <p>Be respectful, constructive, and professional in all interactions.</p>
-<h2 id="how-to-contribute_1">How to Contribute<a class="headerlink" href="#how-to-contribute_1" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h2>
 <h3 id="reporting-bugs">Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Check existing issues</strong> to avoid duplicates</li>
@@ -1987,7 +1965,6 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Run tests</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...
 </code></pre></div>
-<p>See <a href="../development/">Development Setup</a> for detailed instructions.</p>
 <h4 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h4>
 <ol>
 <li><strong>Fork the repository</strong></li>
@@ -1999,7 +1976,7 @@
 <li>
 <p><strong>Make your changes</strong></p>
 </li>
-<li>Follow <a href="../code-style/">Code Style</a> guidelines</li>
+<li>Follow code style guidelines (see below)</li>
 <li>Add tests for new functionality</li>
 <li>
 <p>Update documentation as needed</p>
@@ -2045,7 +2022,6 @@
 - Early returns for error cases
 - Fail-fast - don't recover from errors silently
 - Use meaningful comments for complex logic only</p>
-<p>See <a href="../code-style/">Code Style</a> for detailed guidelines.</p>
 <h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
 <p>Use the enhanced error package:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Good: Enhanced error with suggestions</span>
@@ -2095,7 +2071,7 @@
 <h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Update README.md for user-facing changes</li>
-<li>Update documentation in <code>docs/</code> directory</li>
+<li>Update IMPLEMENTATION.md for architectural changes</li>
 <li>Add inline comments for complex logic</li>
 <li>Update CHANGELOG.md following Keep a Changelog format</li>
 </ul>
@@ -2123,7 +2099,6 @@
 <li><strong>Pipeline pattern</strong> - Modular, testable stages</li>
 <li><strong>External tools</strong> - Shell out to gomplate, docker compose</li>
 </ol>
-<p>See <a href="../../advanced/architecture/">Architecture</a> for detailed design documentation.</p>
 <h2 id="commit-message-guidelines">Commit Message Guidelines<a class="headerlink" href="#commit-message-guidelines" title="Permanent link">&para;</a></h2>
 <p>Use <a href="https://www.conventionalcommits.org/">Conventional Commits</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
@@ -2191,22 +2166,15 @@
 <ul>
 <li><strong>Questions</strong>: Open a <a href="https://github.com/monkeymonk/homelabctl/discussions">Discussion</a></li>
 <li><strong>Bugs</strong>: Open an <a href="https://github.com/monkeymonk/homelabctl/issues">Issue</a></li>
-<li><strong>Documentation</strong>: https://monkeymonk.github.io/homelabctl/</li>
+<li><strong>Chat</strong>: Join our community (link TBD)</li>
 </ul>
 <h2 id="recognition">Recognition<a class="headerlink" href="#recognition" title="Permanent link">&para;</a></h2>
 <p>Contributors are recognized in:
 - README.md contributors section
 - Release notes
-- Git commit history
-- CHANGELOG.md</p>
+- Git commit history</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>By contributing, you agree that your contributions will be licensed under the MIT License.</p>
-<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../development/">Development Setup</a> - Environment setup guide</li>
-<li><a href="../code-style/">Code Style</a> - Detailed coding standards</li>
-<li><a href="../../advanced/architecture/">Architecture</a> - System design overview</li>
-</ul>
 
 
 

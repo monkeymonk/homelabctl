@@ -1468,32 +1468,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compatibility
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#upcoming-features-roadmap" class="md-nav__link">
     <span class="md-ellipsis">
       
         Upcoming Features (Roadmap)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
       
     </span>
   </a>
@@ -1699,32 +1677,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compatibility
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#upcoming-features-roadmap" class="md-nav__link">
     <span class="md-ellipsis">
       
         Upcoming Features (Roadmap)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
       
     </span>
   </a>
@@ -1770,19 +1726,21 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Pipeline-based generation architecture</li>
 <li>Dynamic category discovery</li>
 <li>Service-level enable/disable functionality</li>
-<li>Complete documentation site with guides</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Extracted from monolithic homelab repository</li>
 <li>Improved documentation for standalone use</li>
 <li>Consolidated CLI documentation</li>
-<li>Module path fixed for <code>go install</code> compatibility</li>
+<li>Removed redundant root docs (INSTALL.md, GUIDE.md, IMPLEMENTATION.md) - now covered by GitHub Pages</li>
+<li>Documentation auto-syncs from root CHANGELOG.md and CONTRIBUTING.md to docs site</li>
 </ul>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Variable precedence consistency</li>
 <li>Dependency validation edge cases</li>
+<li>Category tests to use correct function calls and test data</li>
+<li>FilterServicesStage to properly filter disabled services from compose output</li>
 </ul>
 <h2 id="010-2025-01-xx">[0.1.0] - 2025-01-XX<a class="headerlink" href="#010-2025-01-xx" title="Permanent link">&para;</a></h2>
 <h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
@@ -1800,9 +1758,8 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>README with comprehensive usage examples</li>
-<li>Complete user and developer guides</li>
-<li>Architecture and pipeline documentation</li>
-<li>CLI reference and troubleshooting guides</li>
+<li>GUIDE.md for complete workflow documentation</li>
+<li>IMPLEMENTATION.md for technical details</li>
 </ul>
 <hr />
 <h2 id="version-history">Version History<a class="headerlink" href="#version-history" title="Permanent link">&para;</a></h2>
@@ -1829,15 +1786,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
 <p><strong>None</strong> - Full backward compatibility maintained.</p>
 <hr />
-<h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Go</strong>: 1.21 or higher</li>
-<li><strong>Docker</strong>: 20.10 or higher</li>
-<li><strong>Docker Compose</strong>: 2.0 or higher</li>
-<li><strong>gomplate</strong>: 3.0 or higher (called as external binary)</li>
-<li><strong>SOPS</strong>: 3.7 or higher (optional, for secrets)</li>
-</ul>
-<hr />
 <h2 id="upcoming-features-roadmap">Upcoming Features (Roadmap)<a class="headerlink" href="#upcoming-features-roadmap" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] Interactive mode for stack selection</li>
@@ -1850,17 +1798,8 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>[ ] Parallel rendering for faster generation</li>
 <li>[ ] Config diff viewer</li>
 <li>[ ] Dry-run mode for all commands</li>
+<li>[ ] Dedicated AI Agent</li>
 </ul>
-<hr />
-<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/monkeymonk/homelabctl">GitHub Repository</a></li>
-<li><a href="https://monkeymonk.github.io/homelabctl/">Documentation</a></li>
-<li><a href="https://github.com/monkeymonk/homelabctl/issues">Issue Tracker</a></li>
-<li><a href="https://github.com/monkeymonk/homelabctl/discussions">Discussions</a></li>
-</ul>
-<hr />
-<p><em>For detailed version history, see <a href="https://github.com/monkeymonk/homelabctl/releases">GitHub Releases</a></em></p>
 
 
 
